@@ -1,0 +1,12 @@
+$def with (books)
+
+<h1>My Reading List</h1>
+
+<ul>
+$for book in books:
+    <li>
+        <a href="/view/$book.id">$book.title</a>
+        $book.author  
+        <a href="/edit/$book.id">Edit</a>
+    </li>
+</ul>
