@@ -10,6 +10,7 @@ urls = (
     '/new', 'New',
     '/delete/(\d+)', 'Delete',
     '/edit/(\d+)', 'Edit',
+    '/(js|css|images)/(.*)', 'static', 
 )
 
 
@@ -100,6 +101,13 @@ class Edit:
         model.update_book(int(id), form.d.booknum, form.d.title, form.d.author)
         raise web.seeother('/')
 
+class static:
+    def GET(self, media, file):
+        try:
+            f = open(media+'/'+file, 'r')
+            return f.read()
+        except:
+            return '' # you can send an 404 error here if you want
 
 app = web.application(urls, globals())
 
