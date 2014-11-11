@@ -1,0 +1,66 @@
+﻿div.rounded {    
+    max-width:2400px;
+    width:630px;
+    margin-bottom: 10px;
+    margin-left: 10px;
+    padding: 10px;
+    clear: both;
+}
+
+div.rounded div.top {
+    background: url(../images/tl.png) no-repeat bottom left;
+    padding:0px;
+    width:100%
+}
+
+div.rounded div.top div.top-right {
+    background: url(../images/tr.png) no-repeat bottom right;
+    height:12px;
+    margin-left:12px
+}
+
+div.rounded div.middle {
+    background: url(../images/l.png) repeat-y left;
+    width:100%
+}
+
+div.rounded div.middle div.middle-right {
+    background: url(../images/r.png) repeat-y right;
+    margin-left:5px
+}
+
+div.rounded div.middle div.middle-right div.content {
+    background: url(../images/bg.png) top left;
+    color:#000000;
+    font-family:"Trebuchet MS", Calibri, Tahoma, sans-serif;
+    font-size:1.0em;
+    line-height:1.0em;
+    margin-right:5px;
+    text-align:justify; padding-left:7px; padding-right:7px; padding-top:0px; padding-bottom:0px
+}
+
+div.rounded div.middle div.middle-right div.content p {
+    margin:0px;
+    padding-top:15px;
+}
+
+div.rounded div.middle div.middle-right div.content h2 {
+    color:#903;
+    font-size:1.00em;
+    font-weight:bold;
+    margin:0px;
+    padding:7px 0px;
+}
+
+div.rounded div.bottom {
+    background: url(../images/bl.png) no-repeat top left;
+    clear:both;
+    padding:0px;
+    width:100%
+}
+
+div.rounded div.bottom div.bottom-right {
+    background: url(../images/br.png) no-repeat top right;
+    height:12px;
+    margin-left:12px
+}

@@ -1,0 +1,46 @@
+﻿.logo {
+	font-family:"Times New Roman", Times, serif;
+	font-size: 3em;
+	color: white;
+}
+#TodaysDate {
+	font-weight: bold;
+	color: white;
+	height: 2.5em;
+	line-height: 2.5em;
+	padding-right: 1em;
+}
+/************* table data *******************/
+.tableData {
+	border-width: 1px;
+	border-style: solid;
+	border-color: black;
+	border-collapse: collapse;
+	background-color: white;
+}
+.tableData th {
+	font-family:Arial;
+	font-weight: bold;
+	border-width: 1px;
+	padding: 3px;
+	border-style: solid;
+	border-color: black;
+	background-color: black;
+	color: white;
+}
+.tableData td {
+	font-family:Arial;
+	border-width: 1px;
+	padding: 3px;
+	border-style: solid;
+	border-color: black;
+	background-color: white;
+}
+#photos {
+	width: 500px !important;
+	max-width: 500px !important;
+}
+#Books{
+	width: 500px !important;
+	max-width: 500px !important;
+}
