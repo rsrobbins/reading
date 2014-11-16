@@ -20,3 +20,7 @@ def del_book(id):
 def update_book(id, booknum, title, author):
     db.update('books', where="id=$id", vars=locals(),
         booknum=booknum, title=title, author=author)
+        
+def get_books_recordcount():
+		result = db.query("SELECT COUNT(*) AS total_books FROM books") 
+		return result

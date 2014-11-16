@@ -13,10 +13,10 @@ urls = (
     '/(js|css|images)/(.*)', 'static', 
 )
 
-
 ### Templates
 t_globals = {
-    'datestr': web.datestr
+    'datestr': web.datestr,
+    'model': model
 }
 render = web.template.render('templates', base='base', globals=t_globals)
 

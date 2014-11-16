@@ -53,7 +53,6 @@ h1#branding {
 	text-align:left;
 	background:#aaa;
 	padding:.7em 1em;
-	height: 350px;	
 	margin-bottom:0;
 }
 
@@ -520,27 +519,20 @@ input.search.button {
 	background: #999;
 }
 
-.content {
-	width: 900px;
-	max-width: 900px;
-	min-width: 900px;
-	height: 750px;
-	max-height: 750px;
-	min-height: 750px;	
+#content {
 	background: #DFE5FF;
 	border-collapse: collapse;
-	border: 1px solid #000;
-	display: block;
-	/* center the content block */
-	position: absolute;
-	margin-right: -50%;	
-	left: 50%;
-	transform: translate(-50%, 0);
+	border: 1px solid #000;	
 }
-.footer {
+#statistics {
+ width: 170px;
+}
+#statistics_icon {
 	position: relative;
-	top: 750px;
-	left: 640px;	
-	max-width: 900px;
-	min-width: 900px;
+	top: 7px;
+	left: 0px;
+}
+#statistics_heading {
+	margin:-10px -10px 0 -10px;
+	padding:0px 12px 6px 12px;
 }

@@ -11,6 +11,9 @@ $RECYCLE.BIN/
 # web.py folder
 web/
 
+# Python compiled files
+*.pyc
+
 # Windows Installer files
 *.cab
 *.msi
