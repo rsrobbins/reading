@@ -16,19 +16,34 @@ $def with (page)
 </head>
 <body>
 <div class="container_12">
+			<!-- banner spans all 6 center columns in the grid -->
+			<div class="grid_3">&nbsp;</div>
+			<!-- can't load images in the css, do it inline -->
+			<div id="banner" class="grid_6" style="background-image:url('$page.get("background","images/books-background.jpg")')" >
+				<h1>&nbsp;</h1>
+			</div>		
+			<div class="grid_3">&nbsp;</div>
+			<!-- Menu: a div with the class clear starts a new row -->
+			<div class="clear"></div>
+			<div class="grid_3">&nbsp;</div>	
+			<div class="grid_6" id="menu_div">	
+					<ul id="menu">
+					    <li class="menu_item"><a href="/" class="menu_link"><img id="home_icon" src="$page.get("home","images/24home.gif")" width="24" height="24" alt="Home"/><span class="link_text">Home</span></a></li>
+					    <li class="separator">&nbsp;</li>
+					    <li class="menu_item"><a href="/new" class="menu_link"><img id="new_icon" src="$page.get("new","images/24catalog-b-plus.gif")" width="24" height="24" alt="New Book"/><span class="link_text">New Book</span></a></li>
+					</ul>
+			</div>	
+			<div class="grid_3">&nbsp;</div>			
+			<!-- Content: a div with the class clear starts a new row -->
 			<div class="clear"></div>
 			<div class="grid_3">&nbsp;</div>	
 			<div class="grid_6" id="content">	
-				<!-- page content begins here -->
-					<ul id="menu">
-					    <li><a href="/">Home</a></li>
-					    <li><a href="/new">New Book</a></li>
-					</ul>
-					
+				<!-- page content begins here -->				
 					$:page
 					<!-- page content ends here -->
 			</div>	
 			<div class="grid_3">&nbsp;</div>
+			<!-- Footer" a div with the class clear starts a new row -->
 			<div class="clear"></div>
 			<div class="grid_3">&nbsp;</div>
 			<div class="grid_6" id="footer">

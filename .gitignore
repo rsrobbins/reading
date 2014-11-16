@@ -14,6 +14,10 @@ web/
 # Python compiled files
 *.pyc
 
+# Eclipse project files
+.project
+.pydevproject
+
 # Windows Installer files
 *.cab
 *.msi

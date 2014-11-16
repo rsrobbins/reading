@@ -36,11 +36,25 @@
 	border-color: black;
 	background-color: white;
 }
-#photos {
-	width: 500px !important;
-	max-width: 500px !important;
+#content {
+	background: #DFE5FF;
+	border-collapse: collapse;
+	border: 1px solid #000;	
 }
-#Books{
-	width: 500px !important;
-	max-width: 500px !important;
+#banner {
+	border-collapse: collapse;
+	border: 1px solid #000;	
+}
+#menu_div {
+	background: #FFFFFF;
+	border-collapse: collapse;
+	border: 1px solid #000;	
+}
+.separator {
+	background-color: #000000;
+}
+.menu_link {
+	color: #0000FF;
+	font-weight:normal;
+	text-decoration: underline;	
 }

@@ -1,6 +1,7 @@
 """ Basic web application using webpy 0.3 """
 import web
 import model
+import os
 
 ### Url mappings
 
@@ -10,7 +11,8 @@ urls = (
     '/new', 'New',
     '/delete/(\d+)', 'Delete',
     '/edit/(\d+)', 'Edit',
-    '/(js|css|images)/(.*)', 'static', 
+    '/(js|css)/(.*)', 'static', 
+    '/images/(.*)', 'images' #this is where the image folder is located....
 )
 
 ### Templates
@@ -103,11 +105,28 @@ class Edit:
 
 class static:
     def GET(self, media, file):
+        
         try:
             f = open(media+'/'+file, 'r')
             return f.read()
         except:
             return '' # you can send an 404 error here if you want
+        
+class images:
+    def GET(self,name):
+        ext = name.split(".")[-1] # Gather extension
+
+        cType = {
+            "png":"images/png",
+            "jpg":"images/jpeg",
+            "gif":"images/gif",
+            "ico":"images/x-icon"            }
+
+        if name in os.listdir('images'):  # Security
+            web.header("Content-Type", cType[ext]) # Set the Header
+            return open('images/%s'%name,"rb").read() # Notice 'rb' for reading images
+        else:
+            raise web.notfound()        
 
 app = web.application(urls, globals())
 

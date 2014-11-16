@@ -519,11 +519,7 @@ input.search.button {
 	background: #999;
 }
 
-#content {
-	background: #DFE5FF;
-	border-collapse: collapse;
-	border: 1px solid #000;	
-}
+/* Added layout for this project */
 #statistics {
  width: 170px;
 }
@@ -535,4 +531,28 @@ input.search.button {
 #statistics_heading {
 	margin:-10px -10px 0 -10px;
 	padding:0px 12px 6px 12px;
+}
+#banner {
+	/* set to height of background image */
+	height: 133px;
+	margin-bottom: -18px;	
+}
+#menu_div {
+	margin-bottom: -18px;	
+}
+.menu_item {
+	display: inline;
+	height: 37px;
+}
+.separator {
+	display: inline;
+	width: 2px;
+	height: 37px;
+	padding-bottom: 18px;
+	padding-top: 10px;
+}
+.link_text {
+	position: relative;
+	top: 12px;
+	left: -4%;
 }
