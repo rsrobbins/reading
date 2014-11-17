@@ -23,6 +23,13 @@ $def with (page)
 				<h1>&nbsp;</h1>
 			</div>		
 			<div class="grid_3">&nbsp;</div>
+			<!-- Dateline: a div with the class clear starts a new row -->
+			<div class="clear"></div>
+			<div class="grid_3">&nbsp;</div>	
+			<div class="grid_6" id="date_div">
+				<span id="date">$now.strftime('%A, %B %d, %Y')</span>
+			</div>	
+			<div class="grid_3">&nbsp;</div>		
 			<!-- Menu: a div with the class clear starts a new row -->
 			<div class="clear"></div>
 			<div class="grid_3">&nbsp;</div>	
@@ -37,10 +44,12 @@ $def with (page)
 			<!-- Content: a div with the class clear starts a new row -->
 			<div class="clear"></div>
 			<div class="grid_3">&nbsp;</div>	
-			<div class="grid_6" id="content">	
+			<div class="grid_6" id="content_div">	
+				<div id="content">
 				<!-- page content begins here -->				
 					$:page
 					<!-- page content ends here -->
+				</div>	
 			</div>	
 			<div class="grid_3">&nbsp;</div>
 			<!-- Footer" a div with the class clear starts a new row -->

@@ -537,6 +537,12 @@ input.search.button {
 	height: 133px;
 	margin-bottom: -18px;	
 }
+#date_div {
+	margin-bottom: -18px;	
+}
+#date {
+	padding-left: 5px;
+}
 #menu_div {
 	margin-bottom: -18px;	
 }
@@ -555,4 +561,7 @@ input.search.button {
 	position: relative;
 	top: 12px;
 	left: -4%;
+}
+#content {
+	padding-left: 10px;
 }

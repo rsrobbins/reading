@@ -2,6 +2,8 @@
 import web
 import model
 import os
+import time
+import datetime
 
 ### Url mappings
 
@@ -18,6 +20,7 @@ urls = (
 ### Templates
 t_globals = {
     'datestr': web.datestr,
+    'now': datetime.date.today(),
     'model': model
 }
 render = web.template.render('templates', base='base', globals=t_globals)

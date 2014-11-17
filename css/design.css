@@ -36,7 +36,7 @@
 	border-color: black;
 	background-color: white;
 }
-#content {
+#content_div {
 	background: #DFE5FF;
 	border-collapse: collapse;
 	border: 1px solid #000;	
@@ -57,4 +57,10 @@
 	color: #0000FF;
 	font-weight:normal;
 	text-decoration: underline;	
+}
+#date_div {
+	background-color: #000080;
+	color: #FFFFFF;
+	border-collapse: collapse;
+	border: 1px solid #000;		
 }
