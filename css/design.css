@@ -60,7 +60,9 @@
 }
 #date_div {
 	background-color: #000080;
-	color: #FFFFFF;
+	color: #D8E3F5;
 	border-collapse: collapse;
-	border: 1px solid #000;		
+	border: 1px solid #000;	
+	font-family: Arial;
+  font-size: 10pt;	
 }
