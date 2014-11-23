@@ -10,11 +10,43 @@ $for rc in list(model.get_books_recordcount()):
 </div>
 </div>
 
-<ul>
+<table id="BooksTable" class="tableData">
+<tr>
+	<th>Book Number</th>
+	<th>Title</th>
+	<th colspan="2">Author</th>
+</tr>
 $for book in books:
-    <li>
-        <a href="/view/$book.id">$book.title</a>
-        $book.author  
-        <a href="/edit/$book.id">Edit</a>
-    </li>
-</ul>
+    $if book.booknum%2 == 0:
+    	<tr class="even">
+    		<td width="96">
+    			$book.booknum
+    		</td>
+		    <td>
+		        <a href="/view/$book.id"><img class="info_icon" src="images/16-message-info.png" width="16" height="16" alt="Info"/>&nbsp;$book.title</a>
+		    </td>	
+		    <td>	        
+		        $book.author       
+		    </td>
+		    <td>
+		    	<a href="/edit/$book.id">
+		    	<img class="pencil_icon" src="images/16pencil.gif" width="16" height="16" alt="Edit"/></a>
+		    </td>
+	    </tr>
+    $else:
+    	<tr class="odd">
+    		<td width="96">
+    			$book.booknum
+    		</td>
+		    <td>
+		        <a href="/view/$book.id"><img class="info_icon" src="images/16-message-info.png" width="16" height="16" alt="Info"/>&nbsp;$book.title</a>
+		    </td>	
+		    <td>	        
+		        $book.author       
+		    </td>
+		    <td>
+		    	<a href="/edit/$book.id">
+		    	<img class="pencil_icon" src="images/16pencil.gif" width="16" height="16" alt="Edit"/></a>
+		    </td>
+	    </tr> 
+</table>	

@@ -565,3 +565,6 @@ input.search.button {
 #content {
 	padding-left: 10px;
 }
+.info_icon {
+	vertical-align: bottom;
+}
