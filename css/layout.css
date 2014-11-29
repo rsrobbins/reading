@@ -522,6 +522,7 @@ input.search.button {
 /* Added layout for this project */
 #statistics {
  width: 170px;
+ margin-top: 20px;
 }
 #statistics_icon {
 	position: relative;
@@ -536,6 +537,11 @@ input.search.button {
 	/* set to height of background image */
 	height: 133px;
 	margin-bottom: -18px;	
+}
+#banner h1 {
+	position: relative;
+	top: 40px;
+	left: 195px;
 }
 #date_div {
 	margin-bottom: -18px;	
@@ -567,4 +573,11 @@ input.search.button {
 }
 .info_icon {
 	vertical-align: bottom;
+}
+label {
+	white-space: nowrap;
+}
+#view {
+	margin-top: 10px;
+	width: 500px;
 }

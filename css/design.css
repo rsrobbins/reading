@@ -48,6 +48,12 @@
 	border-collapse: collapse;
 	border: 1px solid #000;	
 }
+#banner h1 {
+	color: #FFFFFF;
+	font-family: Verdana, Geneva, sans-serif;	
+	font-size: 40px;
+	text-shadow: 5px 5px 5px #000;
+}
 #menu_div {
 	background: #FFFFFF;
 	border-collapse: collapse;
@@ -69,3 +75,6 @@
 	font-family: Arial;
   font-size: 10pt;	
 }
+#statistics {
+    border: 1px solid #000;
+ }

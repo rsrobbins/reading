@@ -13,5 +13,9 @@ $var background = '../images/books-background.jpg'
 $var home = '../images/24home.gif'
 $var new = '../images/24image-plus.gif'
 
-<h1>$book.title</h1>
-$book.author<br/>
+
+<table id="view">
+    <tr><th><label for="booknum">Book number:</label></th><td><input disabled name="booknum" type="text" id="booknum" value="$book.booknum" size="3"/></td></tr>
+    <tr><th><label for="title">Book title:</label></th><td><input disabled name="title" type="text" id="title" value="$book.title" size="95"/></td></tr>
+    <tr><th><label for="author">Book author:</label></th><td><input disabled name="author" type="text" id="author" value="$book.author" size="95"/></td></tr>
+</table>
