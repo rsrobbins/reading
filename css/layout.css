@@ -1,4 +1,4 @@
-/*
+﻿/*
 -----------------------------------------------
 Grey Box Method - Layout CSS
 ----------------------------------------------- */
@@ -244,7 +244,7 @@ ul.section li.current > a.active:hover {
 /* table
 ----------------------------------------------- */
 table {
-	width:100%;
+	width:99%;
 	border:1px solid #bbb;
 	margin-bottom:10px;
 }

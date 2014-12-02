@@ -21,7 +21,8 @@ urls = (
 t_globals = {
     'datestr': web.datestr,
     'now': datetime.date.today(),
-    'model': model
+    'model': model,
+    'pages': 0
 }
 render = web.template.render('templates', base='base', globals=t_globals)
 
@@ -30,7 +31,16 @@ class Index:
 
     def GET(self):
         """ Show page """
-        books = model.get_books()
+        params = web.input()
+        page = params.page if hasattr(params, 'page') else 1
+        perpage = 10
+        offset = (int(page) - 1) * perpage
+        bookcount = model.get_books_count()
+        print "Book Count =", bookcount.total_books
+        pages = bookcount.total_books / perpage
+        t_globals["pages"] = pages
+        print "Pages =", pages
+        books = model.get_books(offset, perpage)
         return render.index(books)
 
 

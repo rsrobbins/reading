@@ -3,8 +3,8 @@ $def with (books)
 <div class="box" id="statistics">
   <h2 id="statistics_heading"><img id="statistics_icon" src="images/24image-plus.gif" width="24" height="24" alt="Statistics"/>Statistics</h2>
 <div class="block">
-$for rc in list(model.get_books_recordcount()):	
-	<p>Database Records:&nbsp;$rc.total_books</p> 
+$ bookcount = model.get_books_count()	
+	<p>Database Records:&nbsp;$bookcount.total_books</p>  
 </div>
 </div>
 
@@ -47,4 +47,9 @@ $for book in books:
 		    	<img class="pencil_icon" src="images/16pencil.gif" width="16" height="16" alt="Edit"/></a>
 		    </td>
 	    </tr> 
-</table>	
+</table>
+<div class="pagination">
+$for page in range(pages):
+		$ page = page + 1
+		<a href="?page=$page" class="page gradient">$page</a>
+</div>	
