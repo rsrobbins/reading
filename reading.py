@@ -14,7 +14,8 @@ urls = (
     '/delete/(\d+)', 'Delete',
     '/edit/(\d+)', 'Edit',
     '/(js|css)/(.*)', 'static', 
-    '/images/(.*)', 'images' #this is where the image folder is located....
+    '/images/(.*)', 'images', #this is where the image folder is located....
+    '/search', 'Search',
 )
 
 ### Templates
@@ -139,7 +140,20 @@ class images:
             web.header("Content-Type", cType[ext]) # Set the Header
             return open('images/%s'%name,"rb").read() # Notice 'rb' for reading images
         else:
-            raise web.notfound()        
+            raise web.notfound()   
+            
+class Search:    
+	
+    form = web.form.Form(  
+        web.form.Textbox('title', web.form.notnull, 
+            size=100,
+            description="Book title:"),
+        web.form.Button('Search Books'),
+    )	     
+    
+    def GET(self):
+        form = self.form()
+        return render.search(form)           
 
 app = web.application(urls, globals())
 
