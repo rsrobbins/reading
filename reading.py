@@ -15,7 +15,8 @@ urls = (
     '/edit/(\d+)', 'Edit',
     '/(js|css)/(.*)', 'static', 
     '/images/(.*)', 'images', #this is where the image folder is located....
-    '/search', 'Search',
+    '/searchtitles', 'SearchTitles',
+    '/searchauthors', 'SearchAuthors',    
 )
 
 ### Templates
@@ -142,7 +143,7 @@ class images:
         else:
             raise web.notfound()   
             
-class Search:    
+class SearchTitles:    
 	
     form = web.form.Form(  
         web.form.Textbox('title', web.form.notnull, 
@@ -153,7 +154,48 @@ class Search:
     
     def GET(self):
         form = self.form()
-        return render.search(form)           
+        return render.searchtitles(form)
+        
+    def POST(self):
+        params = web.input()
+        page = params.page if hasattr(params, 'page') else 1
+        title = "%" + params.title.strip() + "%"        
+        perpage = 10
+        offset = (int(page) - 1) * perpage
+        bookcount = model.get_search_titles_count(title)
+        print "Book Count =", bookcount.total_books
+        pages = bookcount.total_books / perpage
+        t_globals["pages"] = pages
+        print "Pages =", pages
+        books = model.search_titles(title, offset, perpage)
+        return render.searchresults(books) 
+        
+class SearchAuthors:    
+	
+    form = web.form.Form(  
+        web.form.Textbox('author', web.form.notnull, 
+            size=100,
+            description="Book author:"),
+        web.form.Button('Search Books'),
+    )	     
+    
+    def GET(self):
+        form = self.form()
+        return render.searchauthors(form)
+        
+    def POST(self):
+        params = web.input()
+        page = params.page if hasattr(params, 'page') else 1
+        author = "%" + params.author.strip() + "%"        
+        perpage = 10
+        offset = (int(page) - 1) * perpage
+        bookcount = model.get_search_authors_count(author)
+        print "Book Count =", bookcount.total_books
+        pages = bookcount.total_books / perpage
+        t_globals["pages"] = pages
+        print "Pages =", pages
+        books = model.search_authors(author, offset, perpage)
+        return render.searchresults(books)                          
 
 app = web.application(urls, globals())
 

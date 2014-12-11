@@ -24,3 +24,17 @@ def update_book(id, booknum, title, author):
 def get_books_count():
 		result = db.query("SELECT COUNT(*) AS total_books FROM books")[0] 
 		return result		
+		
+def search_titles(title, offset, perpage):
+    return db.select('books', where='title LIKE $title', vars=locals(), order='booknum ASC', offset=offset, limit=perpage)		
+    
+def get_search_titles_count(title):
+		result = db.query("SELECT COUNT(*) AS total_books FROM books WHERE title LIKE $title", vars=locals())[0] 
+		return result  
+		
+def search_authors(author, offset, perpage):
+    return db.select('books', where='author LIKE $author', vars=locals(), order='booknum ASC', offset=offset, limit=perpage)		
+    
+def get_search_authors_count(author):
+		result = db.query("SELECT COUNT(*) AS total_books FROM books WHERE author LIKE $author", vars=locals())[0] 
+		return result  		  

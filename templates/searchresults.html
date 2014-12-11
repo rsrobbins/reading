@@ -1,0 +1,55 @@
+$def with (books)
+
+<div class="box" id="statistics">
+  <h2 id="statistics_heading"><img id="statistics_icon" src="images/24image-plus.gif" width="24" height="24" alt="Statistics"/>Statistics</h2>
+<div class="block">
+$ bookcount = model.get_books_count()	
+	<p>Database Records:&nbsp;$bookcount.total_books</p>  
+</div>
+</div>
+
+<table id="BooksTable" class="tableData">
+<tr>
+	<th>Book Number</th>
+	<th>Title</th>
+	<th colspan="2">Author</th>
+</tr>
+$for book in books:
+    $if book.booknum%2 == 0:
+    	<tr class="even">
+    		<td width="96">
+    			$book.booknum
+    		</td>
+		    <td>
+		        <a href="/view/$book.id"><img class="info_icon" src="images/16-message-info.png" width="16" height="16" alt="Info"/>&nbsp;$book.title</a>
+		    </td>	
+		    <td>	        
+		        $book.author       
+		    </td>
+		    <td>
+		    	<a href="/edit/$book.id">
+		    	<img class="pencil_icon" src="images/16pencil.gif" width="16" height="16" alt="Edit"/></a>
+		    </td>
+	    </tr>
+    $else:
+    	<tr class="odd">
+    		<td width="96">
+    			$book.booknum
+    		</td>
+		    <td>
+		        <a href="/view/$book.id"><img class="info_icon" src="images/16-message-info.png" width="16" height="16" alt="Info"/>&nbsp;$book.title</a>
+		    </td>	
+		    <td>	        
+		        $book.author       
+		    </td>
+		    <td>
+		    	<a href="/edit/$book.id">
+		    	<img class="pencil_icon" src="images/16pencil.gif" width="16" height="16" alt="Edit"/></a>
+		    </td>
+	    </tr> 
+</table>
+<div class="pagination">
+$for page in range(pages):
+		$ page = page + 1
+		<a href="?page=$page" class="page gradient">$page</a>
+</div>	
