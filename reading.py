@@ -47,12 +47,16 @@ class Index:
             pages += 1
         t_globals["pages"] = pages
         t_globals["current_page"] = page
-        t_globals["first_page"] = 0
-        t_globals["last_page"] = 16
+        if not hasattr(params, 'page'):
+            t_globals["first_page"] = 0
+            t_globals["last_page"] = 11
         print "page =", page
-        if int(page) % 16 > 0:
-            t_globals["first_page"] = 15
-            t_globals["last_page"] = 30            
+        if int(page) == t_globals["last_page"]:
+            t_globals["first_page"] = t_globals["first_page"] + 10
+            t_globals["last_page"] = t_globals["last_page"] + 10 
+        if int(page) == t_globals["first_page"]:
+            t_globals["first_page"] = t_globals["first_page"] - 10
+            t_globals["last_page"] = t_globals["last_page"] - 10                    
         print "Pages =", pages
         print "first_page =", t_globals["first_page"]
         books = model.get_books(offset, perpage)

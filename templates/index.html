@@ -50,9 +50,15 @@ $for book in books:
 </table>
 <div class="pagination">
 $for page in range(first_page, last_page):
+		$if page > pages - 1 or page < 0:
+				$break
 		$ page = page + 1
-		$if page == last_page:
+		$if page == last_page and not page > pages:
 				<a href="?page=$page" class="page gradient">Next &gt;</a>
+		$elif page == first_page + 1 and not page == 1:
+				$ prev_page = page - 1
+				<a href="?page=$prev_page" class="page gradient">&lt; Prev</a>
+				<a href="?page=$page" class="page gradient">$page</a>
 	  $else:
 	  		<a href="?page=$page" class="page gradient">$page</a>
 </div>	
