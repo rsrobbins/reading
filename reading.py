@@ -24,7 +24,10 @@ t_globals = {
     'datestr': web.datestr,
     'now': datetime.date.today(),
     'model': model,
-    'pages': 0
+    'pages': 0,
+    'current_page': 0,
+    'first_page': 0,
+    'last_page': 0
 }
 render = web.template.render('templates', base='base', globals=t_globals)
 
@@ -40,8 +43,18 @@ class Index:
         bookcount = model.get_books_count()
         print "Book Count =", bookcount.total_books
         pages = bookcount.total_books / perpage
+        if bookcount.total_books % perpage > 0:
+            pages += 1
         t_globals["pages"] = pages
+        t_globals["current_page"] = page
+        t_globals["first_page"] = 0
+        t_globals["last_page"] = 16
+        print "page =", page
+        if int(page) % 16 > 0:
+            t_globals["first_page"] = 15
+            t_globals["last_page"] = 30            
         print "Pages =", pages
+        print "first_page =", t_globals["first_page"]
         books = model.get_books(offset, perpage)
         return render.index(books)
 

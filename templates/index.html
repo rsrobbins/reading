@@ -49,7 +49,11 @@ $for book in books:
 	    </tr> 
 </table>
 <div class="pagination">
-$for page in range(pages):
+$for page in range(first_page, last_page):
 		$ page = page + 1
-		<a href="?page=$page" class="page gradient">$page</a>
+		$if page == last_page:
+				<a href="?page=$page" class="page gradient">Next &gt;</a>
+	  $else:
+	  		<a href="?page=$page" class="page gradient">$page</a>
 </div>	
+<span>page <strong>$current_page</strong> of <strong>$pages</strong></span>
