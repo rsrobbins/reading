@@ -4,6 +4,9 @@ import model
 import os
 import time
 import datetime
+import requests
+import json
+import MySQLdb
 
 ### Url mappings
 
@@ -16,7 +19,8 @@ urls = (
     '/(js|css)/(.*)', 'static', 
     '/images/(.*)', 'images', #this is where the image folder is located....
     '/searchtitles', 'SearchTitles',
-    '/searchauthors', 'SearchAuthors',    
+    '/searchauthors', 'SearchAuthors',
+    '/import', 'ImportBooks',        
 )
 
 ### Templates
@@ -212,7 +216,36 @@ class SearchAuthors:
         t_globals["pages"] = pages
         print "Pages =", pages
         books = model.search_authors(author, offset, perpage)
-        return render.searchresults(books)                          
+        return render.searchresults(books)  
+        
+class ImportBooks: 
+    def GET(self): 
+        r = requests.get('http://www.williamsportwebdeveloper.com/BookServices.php') 
+        print r.status_code   
+        print r.headers['content-type']   
+        print r.encoding   
+        # books will be a list of dictionary objects   
+        books = json.loads(r.text) 
+        print len(books), "books in database"
+        
+        # Not doing this in the model because I need to set character sets
+        db = MySQLdb.connect(host="127.0.0.1", user="reader", passwd="debug", db="reading")
+        db.set_character_set('utf8') 
+        cur = db.cursor()
+        cur.execute('SET CHARACTER SET utf8;')   
+        cur.execute('SET character_set_connection=utf8;')
+				
+        bookcount = model.get_books_count()
+        recordcount = 1
+        print "bookcount", bookcount.total_books
+        for book in books:   
+             if recordcount > bookcount.total_books: 
+                  cur.execute("INSERT INTO books (`booknum`, `title`, `author`) VALUES (%s,%s,%s)", (book["BookNum"], book["Title"], book["Author"]))    
+                  print cur._executed
+             recordcount = recordcount + 1  
+        db.commit()   
+        db.close()      
+        raise web.seeother('/')                       
 
 app = web.application(urls, globals())
 

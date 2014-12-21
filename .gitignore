@@ -10,6 +10,7 @@ $RECYCLE.BIN/
 
 # web.py folder
 web/
+requests/
 
 # Python compiled files
 *.pyc
